@@ -1,0 +1,9 @@
+langchain
+langchain-chroma
+unstructured[all-docs]
+pydantic
+lxml
+langchain_groq
+langchain_google_genai
+google-generativeai
+uuid
