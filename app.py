@@ -76,18 +76,24 @@ Usage: python app.py
 """
 
 if __name__ == "__main__":
+    from kaggle_secrets import UserSecretsClient
     import os
     from src.rag_system import RAGSystem
     
-    # Get API keys - you can either set these as environment variables or hardcode them here
-    groq_api_key = os.getenv('GROQ_API_KEY', 'your_groq_api_key_here')
-    google_api_key = os.getenv('GOOGLE_API_KEY', 'your_google_api_key_here')
+    # Initialize Kaggle Secrets client
+    user_secrets = UserSecretsClient()
     
-    if groq_api_key == 'your_groq_api_key_here' or google_api_key == 'your_google_api_key_here':
-        print("⚠️  Please set your API keys!")
-        print("Either:")
-        print("1. Set environment variables: GROQ_API_KEY and GOOGLE_API_KEY")
-        print("2. Or edit this file and replace the placeholder keys")
+    # Get API keys from Kaggle Secrets
+    try:
+        groq_api_key = user_secrets.get_secret("GROQ_API_KEY")
+        google_api_key = user_secrets.get_secret("GOOGLE_API_KEY")
+    except Exception as e:
+        print(f"⚠️ Error loading secrets: {e}")
+        print("Please ensure you have added 'GROQ_API_KEY' and 'GOOGLE_API_KEY' in Kaggle Secrets.")
+        print("Steps:")
+        print("1. Go to Notebook Add-ons -> Kaggle Secrets")
+        print("2. Add secrets with labels 'GROQ_API_KEY' and 'GOOGLE_API_KEY'")
+        print("3. Attach them to this notebook")
         exit(1)
     
     # Initialize RAG system
