@@ -106,7 +106,7 @@ if __name__ == "__main__":
     
     # For Kaggle - use a predefined PDF path (you need to upload your PDF to Kaggle)
     # Change this path to your uploaded PDF file in Kaggle
-    pdf_path = "/kaggle/input/your-dataset/your-document.pdf"  # Update this path
+    pdf_path = "/kaggle/input/llava-paper-1/2304.08485v2.pdf"  # Update this path
     
     # Alternative: You can also hardcode a path if you know where your PDF is
     # pdf_path = "./sample.pdf"
