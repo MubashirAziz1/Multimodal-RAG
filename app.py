@@ -121,7 +121,7 @@ if __name__ == "__main__":
     try:
         print(f"📊 Processing document: {pdf_path}")
         img_dir = '/kaggle/working/Multimodal-RAG/imges/'
-        results = rag.process_document(pdf_path, image_dir = img_dir)
+        results = rag.process_document(pdf_path, img_dir)
         
         print("\n" + "="*60)
         print("✅ DOCUMENT PROCESSING COMPLETE!")
