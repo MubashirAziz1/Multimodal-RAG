@@ -120,7 +120,8 @@ if __name__ == "__main__":
     
     try:
         print(f"📊 Processing document: {pdf_path}")
-        results = rag.process_document(pdf_path, image_dir = '/kaggle/working/Multimodal-RAG/imges/')
+        img_dir = '/kaggle/working/Multimodal-RAG/imges/'
+        results = rag.process_document(pdf_path, image_dir = img_dir)
         
         print("\n" + "="*60)
         print("✅ DOCUMENT PROCESSING COMPLETE!")
@@ -131,8 +132,8 @@ if __name__ == "__main__":
         print(f"🖼️  Images: {results['images']}")
         
         # Show extracted images
-        if os.path.exists(image_dir):
-            image_files = [f for f in os.listdir(image_dir) if f.endswith(('.jpg', '.png', '.jpeg'))]
+        if os.path.exists(img_dir):
+            image_files = [f for f in os.listdir(img_dir) if f.endswith(('.jpg', '.png', '.jpeg'))]
             print(f"📷 Extracted image files: {len(image_files)}")
             for img_file in image_files:
                 print(f"   - {img_file}")
