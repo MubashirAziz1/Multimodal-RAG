@@ -106,7 +106,7 @@ if __name__ == "__main__":
     
     # For Kaggle - use a predefined PDF path (you need to upload your PDF to Kaggle)
     # Change this path to your uploaded PDF file in Kaggle
-    pdf_path = "/kaggle/input/llava-paper-1/2304.08485v2.pdf"  # Update this path
+    pdf_path = "/kaggle/input/red-llava-paper/2304.08485v2_removed.pdf"  # Update this path
     
     # Alternative: You can also hardcode a path if you know where your PDF is
     # pdf_path = "./sample.pdf"
@@ -143,8 +143,9 @@ if __name__ == "__main__":
         # Predefined questions for Kaggle testing (no interactive input)
         predefined_questions = [
             "What is the main topic or subject of this document?",
-            "What are the key findings or conclusions mentioned?",
-            "Are there any numerical data, statistics, or performance metrics discussed?"
+            "What are the key findings in the Visual Instruction Tuning Architecture?",
+            "Are there any numerical data, statistics, or performance metrics discussed?",
+            "Explain any images / figures in the paper with playful and creative examples."
         ]
         
         print("\n🤖 Testing RAG system with predefined questions...")
