@@ -15,12 +15,8 @@ class DocumentLoader:
         """Load and partition PDF document into elements"""
         elements = partition_pdf(
             filename=file_path,
-            # Using pdf format to find embedded image blocks
             extract_images_in_pdf=True,
-            # Use layout model (YOLOX) to get bounding boxes (for tables) and find titles
-            # Titles are any sub-section of the document
             infer_table_structure=True,
-            # Post processing to aggregate text once we have the title
             image_output_dir_path=self.image_output_dir,
         )
         return elements
@@ -40,7 +36,6 @@ class DocumentLoader:
         return filtered_elements, table_elements
     
     def get_element_stats(self, elements):
-        """Get statistics of element types"""
         category_counts = {}
         for element in elements:
             category = str(type(element))
@@ -55,7 +50,6 @@ class DocumentLoader:
         if not api_key:
             raise ValueError("Gemini API key is required")
             
-        # Configure Gemini API
         genai.configure(api_key=api_key)
         model = genai.GenerativeModel("gemini-1.5-flash")
         
