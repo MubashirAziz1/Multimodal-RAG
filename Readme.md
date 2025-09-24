@@ -1,0 +1,7 @@
+# Multimodal RAG System
+
+This Retrieval-Augmented Generation (RAG) system is designed to intelligently process PDF documents containing text, tables, and images. The system extracts and analyzes all content types, then allows users to ask questions about the document through an interactive chat interface. It's particularly useful for processing complex documents like research papers, technical reports, or business documents where information is presented in multiple formats.
+
+The system uses a modular architecture with four main components: DocumentLoader for PDF processing and content extraction, TextProcessor for chunking and summarizing content using Groq API, EmbeddingsManager for creating vector representations and storing them in a database, and RetrievalSystem for semantic search and answer generation. Images are analyzed using Google's Vision API to generate descriptive summaries, while all content is converted to embeddings for efficient retrieval during question-answering.
+
+To use this system, you'll need API keys from Groq (for fast LLM inference) and Google (for image analysis). Set these as environment variables `GROQ_API_KEY` and `GOOGLE_API_KEY`, install dependencies with `pip install -r requirements.txt`, and run `python app.py`. The application will prompt you for a PDF file path, process the document (which may take a few minutes), and then provide an interactive interface where you can ask questions about any aspect of the document content. Type 'quit' to exit the session.
